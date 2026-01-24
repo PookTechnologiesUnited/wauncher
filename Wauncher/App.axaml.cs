@@ -1,11 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.Input;
 using Launcher.Utils;
-using System.Linq;
 using Wauncher.ViewModels;
 using Wauncher.Views;
 

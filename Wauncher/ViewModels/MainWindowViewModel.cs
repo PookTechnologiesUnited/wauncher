@@ -40,8 +40,6 @@ namespace Wauncher.ViewModels
                     Dispatcher.UIThread.Post(() => UsernameGreeting = $"Hello, {username}");
                 }
             };
-
-            Discord.SetDetails("In Wauncher");
         }
     }
 }

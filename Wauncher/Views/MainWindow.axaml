@@ -55,7 +55,10 @@
 			</StackPanel>
 		</Grid>
 		<Grid Margin="25,16" VerticalAlignment="Bottom">
-			<TextBlock Classes="h1" Text="{Binding GameStatus}" />
+			<StackPanel>
+				<TextBlock Classes="h1" Text="{Binding GameStatus}" />
+				<TextBlock Classes="h1" Text="{Binding ProtocolManager}" />
+			</StackPanel>
 			<Button
 				Classes="launch"
 				Click="Button_Click">

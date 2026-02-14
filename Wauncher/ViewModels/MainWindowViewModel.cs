@@ -8,6 +8,8 @@ namespace Wauncher.ViewModels
     {
         public string GameStatus { get; private set; } = "Game Status: ";
         
+        public string ProtocolManager { get; private set; } = "Selected server: ";
+        
         [ObservableProperty]
         private string _profilePicture = "https://avatars.githubusercontent.com/u/75831703?v=4";
 
@@ -18,6 +20,11 @@ namespace Wauncher.ViewModels
         
         public MainWindowViewModel()
         {
+            if (Argument.Exists("--protocol-command"))
+            {
+                ProtocolManager = ProtocolManager + "Ready to Launch!";
+            }
+
             Discord.OnAvatarUpdate += (avatarUrl) =>
             {
                 if (!string.IsNullOrEmpty(avatarUrl))
@@ -33,6 +40,8 @@ namespace Wauncher.ViewModels
                     Dispatcher.UIThread.Post(() => UsernameGreeting = $"Hello, {username}");
                 }
             };
+
+            Discord.SetDetails("In Wauncher");
         }
     }
 }

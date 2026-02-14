@@ -4,6 +4,7 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.Input;
 using Launcher.Utils;
+using Wauncher.Utils;
 using Wauncher.ViewModels;
 using Wauncher.Views;
 
@@ -15,6 +16,7 @@ namespace Wauncher
         {
             AvaloniaXamlLoader.Load(this);
             Discord.Init();
+            ProtocolManager.RegisterURIHandler();
         }
 
         public override void OnFrameworkInitializationCompleted()

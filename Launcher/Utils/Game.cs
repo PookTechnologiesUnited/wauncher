@@ -37,6 +37,7 @@ namespace Launcher.Utils
                 _listener.NewGameState += OnNewGameState;
                 _listener.Start();
 
+                try {
                 await File.WriteAllTextAsync(gameStatePath,
 @"""ClassicCounter""
 {
@@ -61,6 +62,11 @@ namespace Launcher.Utils
 	}
 }"
                 );
+                }
+                catch
+                {
+                    Terminal.Error($"(!) \"/csgo/cfg/gamestate_integration_cc.cfg\" not found in the current directory!");
+                }
             }
             else if (File.Exists(gameStatePath)) File.Delete(gameStatePath);
 

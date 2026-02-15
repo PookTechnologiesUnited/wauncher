@@ -74,7 +74,15 @@ namespace Launcher.Utils
             _process.StartInfo.FileName = $"{directory}\\{gameExe}";
             _process.StartInfo.Arguments = string.Join(" ", arguments);
 
+            if (!File.Exists(_process.StartInfo.FileName))
+            {
+                Terminal.Error($"(!) {gameExe} not found in the current directory!");
+                ConsoleManager.ShowError($"{gameExe} not found in the current directory!\n\nPlease make sure the launcher and game files are in the same folder.");
+                return false;
+            }
+
             return _process.Start();
+
         }
 
         public static async Task Monitor()
